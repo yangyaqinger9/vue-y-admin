@@ -2,12 +2,11 @@ import { createRouter, createWebHistory } from "vue-router";
 import Layout from '@/components/Layout.vue'
  
 let routes= [
-    {
-        path: '/',
-        name: 'home',
-        //使用import可以路由懒加载，如果不使用，太多组件一起加载会造成白屏
-        component: () => import('../views/Home/Home.vue')
-    },
+    // {
+    //     path: '/',
+    //     name: 'home',
+    //     component: () => import('../views/Home/Home.vue')
+    // },
     //{
         //配置404页面
         //path: '/:catchAll(.*)',
@@ -15,12 +14,22 @@ let routes= [
         //component: () => import(''),
     //}
     {
-      path: '/aaa',
+      path: '/',
       name: 'aaa',
       meta: {
         title: 'aaa'
       },
       component: Layout,
+      children: [
+        {
+            path: '/bbb',
+            name: 'bbb',
+            meta: {
+              title: 'bbb'
+            },
+            component: () => import('@/views/Home/Home.vue')
+        }
+      ]
     }
 ]
 // 路由

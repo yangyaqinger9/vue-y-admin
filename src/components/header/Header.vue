@@ -1,6 +1,5 @@
 <template>
-  <div>home</div>
-  <el-button type="primary">Primary</el-button>
+  <div class="header"></div>
 </template>
 
 <script setup lang=ts>
